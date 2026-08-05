@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>도서 구매자 VOD 쿠폰 | 이런 거야! Claude Desktop으로 진짜 일하는 법</title>
+<meta name="description" content="『이런 거야! Claude Desktop으로 진짜 일하는 법』 도서 구매자에게 위니버시티 VOD 강의 쿠폰을 드립니다. 구매 인증샷을 보내주시면 메일로 답장드립니다.">
+<meta property="og:title" content="도서 구매자 VOD 쿠폰 | 이런 거야! Claude Desktop으로 진짜 일하는 법">
+<meta property="og:description" content="구매 인증샷을 보내주시면 위니버시티 VOD 강의 쿠폰을 메일로 보내드립니다.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>
+  :root {
+    --blue: #2E6FF2;
+    --blue-dark: #145DF0;
+    --blue-soft: #E5EDFF;
+    --blue-tint: #F5F8FF;
+    --yellow: #FFC533;
+    --yellow-soft: #FFE187;
+    --ink: #121314;
+    --ink-2: #47494D;
+    --gray: #6C7074;
+    --gray-2: #8D9299;
+    --line: #E6E7EA;
+    --line-2: #D9DBE0;
+    --bg: #F3F5FA;
+    --white: #FFFFFF;
+    --radius: 16px;
+    --radius-lg: 24px;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { -webkit-text-size-adjust: 100%; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont,
+                 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif;
+    font-size: 17px;
+    line-height: 1.7;
+    word-break: keep-all;
+    letter-spacing: -0.01em;
+  }
+
+  a { color: inherit; }
+
+  .wrap {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 20px 80px;
+  }
+
+  /* ---------- Header ---------- */
+  .topbar {
+    background: var(--white);
+    border-bottom: 1px solid var(--line);
+  }
+  .topbar-inner {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 18px 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .brand {
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    color: var(--blue);
+    text-decoration: none;
+  }
+  .brand span { color: var(--ink); }
+  .topbar-tag {
+    margin-left: auto;
+    font-size: 13px;
+    color: var(--gray-2);
+    font-weight: 500;
+  }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    padding: 44px 34px 38px;
+    margin-top: 32px;
+    text-align: center;
+  }
+  .eyebrow {
+    display: inline-block;
+    background: var(--blue-soft);
+    color: var(--blue-dark);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    padding: 7px 14px;
+    border-radius: 999px;
+  }
+  .hero h1 {
+    margin: 20px 0 0;
+    font-size: 34px;
+    line-height: 1.35;
+    font-weight: 800;
+    letter-spacing: -0.035em;
+  }
+  .hero h1 .hl {
+    color: var(--blue);
+  }
+  .hero p.lead {
+    margin: 18px auto 0;
+    max-width: 520px;
+    color: var(--ink-2);
+    font-size: 17px;
+  }
+
+  .book {
+    margin-top: 30px;
+    padding-top: 26px;
+    border-top: 1px dashed var(--line-2);
+  }
+  .book-title {
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+  }
+  .book-meta {
+    margin-top: 6px;
+    font-size: 14px;
+    color: var(--gray-2);
+  }
+
+  /* ---------- Section ---------- */
+  section {
+    margin-top: 44px;
+  }
+  h2 {
+    font-size: 24px;
+    font-weight: 800;
+    letter-spacing: -0.035em;
+    margin: 0 0 6px;
+  }
+  .sub {
+    margin: 0 0 20px;
+    color: var(--gray);
+    font-size: 15px;
+  }
+
+  /* ---------- Steps ---------- */
+  .steps {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 14px;
+  }
+  .step {
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 24px 26px;
+    display: flex;
+    gap: 18px;
+    align-items: flex-start;
+  }
+  .step-no {
+    flex: 0 0 auto;
+    width: 34px;
+    height: 34px;
+    border-radius: 10px;
+    background: var(--blue);
+    color: #fff;
+    font-size: 15px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2px;
+  }
+  .step h3 {
+    margin: 0 0 6px;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+  }
+  .step p {
+    margin: 0;
+    color: var(--ink-2);
+    font-size: 15.5px;
+  }
+  .step ul {
+    margin: 10px 0 0;
+    padding-left: 18px;
+    color: var(--gray);
+    font-size: 14.5px;
+  }
+  .step ul li + li { margin-top: 4px; }
+
+  /* ---------- Mail box ---------- */
+  .mailbox {
+    margin-top: 14px;
+    background: var(--blue-tint);
+    border: 1px solid var(--blue-soft);
+    border-radius: 12px;
+    padding: 16px 18px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px 14px;
+  }
+  .mail-label {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--blue-dark);
+  }
+  .mail-addr {
+    font-size: 19px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    text-decoration: none;
+    word-break: break-all;
+  }
+  .mail-addr:hover { color: var(--blue); }
+  .copy-btn {
+    margin-left: auto;
+    border: 1px solid var(--line-2);
+    background: var(--white);
+    color: var(--ink-2);
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 7px 13px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: border-color .15s, color .15s;
+  }
+  .copy-btn:hover { border-color: var(--blue); color: var(--blue); }
+  .copy-btn.done { border-color: var(--blue); color: var(--blue); }
+
+  /* ---------- CTA ---------- */
+  .cta-area {
+    margin-top: 26px;
+    text-align: center;
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: var(--blue);
+    color: #fff;
+    text-decoration: none;
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    padding: 17px 34px;
+    border-radius: 12px;
+    transition: background .15s;
+  }
+  .btn:hover { background: var(--blue-dark); }
+  .btn-note {
+    margin: 12px 0 0;
+    font-size: 13.5px;
+    color: var(--gray-2);
+  }
+
+  /* ---------- Reply notice ---------- */
+  .notice {
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-left: 4px solid var(--yellow);
+    border-radius: var(--radius);
+    padding: 22px 26px;
+  }
+  .notice strong {
+    display: block;
+    font-size: 17px;
+    letter-spacing: -0.025em;
+    margin-bottom: 6px;
+  }
+  .notice p {
+    margin: 0;
+    color: var(--ink-2);
+    font-size: 15.5px;
+  }
+  .notice-blue { border-left-color: var(--blue); }
+  .notice .btn-line {
+    margin-top: 16px;
+    background: var(--white);
+    color: var(--blue);
+    border: 1px solid var(--blue);
+    font-size: 15px;
+    padding: 12px 22px;
+  }
+  .notice .btn-line:hover {
+    background: var(--blue);
+    color: #fff;
+  }
+  .notice .notice-sub {
+    margin-top: 14px;
+    font-size: 13.5px;
+    color: var(--gray-2);
+  }
+  .notice .notice-sub a { color: var(--gray); }
+  .notice .notice-sub a:hover { color: var(--blue); }
+
+  /* ---------- FAQ ---------- */
+  .faq {
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+  .faq details {
+    border-bottom: 1px solid var(--line);
+  }
+  .faq details:last-child { border-bottom: 0; }
+  .faq summary {
+    padding: 18px 24px;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    cursor: pointer;
+    list-style: none;
+    position: relative;
+    padding-right: 48px;
+  }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary::after {
+    content: '+';
+    position: absolute;
+    right: 24px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+    font-weight: 400;
+    color: var(--gray-2);
+  }
+  .faq details[open] summary::after { content: '–'; }
+  .faq .answer {
+    padding: 0 24px 20px;
+    margin: 0;
+    color: var(--ink-2);
+    font-size: 15.5px;
+  }
+
+  /* ---------- Links ---------- */
+  .links {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+  }
+  .link-card {
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 20px 22px;
+    text-decoration: none;
+    transition: border-color .15s;
+  }
+  .link-card:hover { border-color: var(--blue); }
+  .link-card .lc-title {
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+  }
+  .link-card .lc-desc {
+    margin-top: 4px;
+    font-size: 14px;
+    color: var(--gray-2);
+  }
+
+  /* ---------- Footer ---------- */
+  footer {
+    border-top: 1px solid var(--line);
+    background: var(--white);
+    margin-top: 70px;
+  }
+  .footer-inner {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 28px 20px 40px;
+    font-size: 13.5px;
+    color: var(--gray-2);
+  }
+  .footer-inner .fbrand {
+    font-weight: 800;
+    color: var(--ink-2);
+    font-size: 15px;
+    letter-spacing: -0.03em;
+  }
+  .footer-inner p { margin: 6px 0 0; }
+  .footer-inner a { color: var(--gray); text-decoration: none; }
+  .footer-inner a:hover { color: var(--blue); }
+
+  @media (max-width: 560px) {
+    body { font-size: 16px; }
+    .hero { padding: 34px 22px 30px; border-radius: 18px; }
+    .hero h1 { font-size: 26px; }
+    .step { padding: 20px 20px; gap: 14px; }
+    .copy-btn { margin-left: 0; }
+    h2 { font-size: 21px; }
+    .btn { width: 100%; padding: 16px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="https://weniv.co.kr" target="_blank" rel="noopener">weniv<span>.</span></a>
+    <span class="topbar-tag">도서 구매자 전용 이벤트</span>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <!-- HERO -->
+  <div class="hero">
+    <span class="eyebrow">도서 구매자 한정</span>
+    <h1>구매 인증샷 보내주시면<br><span class="hl">위니버시티 VOD 쿠폰</span>을 드립니다</h1>
+    <p class="lead">
+      책과 같은 커리큘럼을 영상으로 담은 위니버시티 강의를,
+      도서를 구매해 주신 분들께 쿠폰으로 열어드립니다.
+    </p>
+
+    <div class="book">
+      <div class="book-title">『이런 거야! Claude Desktop으로 진짜 일하는 법』</div>
+      <div class="book-meta">이호준 지음 · 리코멘드 · 종이책/전자책 동시 출간</div>
+    </div>
+  </div>
+
+  <!-- STEPS -->
+  <section>
+    <h2>쿠폰 받는 방법</h2>
+    <p class="sub">세 단계면 끝납니다. 별도의 신청 양식은 없습니다.</p>
+
+    <ol class="steps">
+      <li class="step">
+        <div class="step-no">1</div>
+        <div>
+          <h3>구매 인증샷을 준비해 주세요</h3>
+          <p>구매하신 것을 확인할 수 있는 사진이면 무엇이든 괜찮습니다.</p>
+          <ul>
+            <li>온라인 서점 주문 내역 화면 (주문번호·도서명이 보이게)</li>
+            <li>전자책 구매 내역 또는 서재 화면</li>
+            <li>오프라인 구매 시 영수증, 또는 책과 함께 찍은 사진</li>
+          </ul>
+        </div>
+      </li>
+
+      <li class="step">
+        <div class="step-no">2</div>
+        <div>
+          <h3>아래 메일로 보내주세요</h3>
+          <p>메일 본문에 <strong>성함</strong>과 <strong>쿠폰 받으실 메일 주소</strong>를 함께 적어주시면 더 빠르게 처리됩니다.</p>
+          <div class="mailbox">
+            <span class="mail-label">보내실 곳</span>
+            <a class="mail-addr" href="mailto:paul-lab@naver.com?subject=%5B%EB%8F%84%EC%84%9C%20%EA%B5%AC%EB%A7%A4%20%EC%9D%B8%EC%A6%9D%5D%20%EC%9D%B4%EB%9F%B0%20%EA%B1%B0%EC%95%BC!%20Claude%20Desktop&body=%EC%84%B1%ED%95%A8%3A%20%0A%EC%BF%A0%ED%8F%B0%20%EB%B0%9B%EC%9C%BC%EC%8B%A4%20%EB%A9%94%EC%9D%BC%20%EC%A3%BC%EC%86%8C%3A%20%0A%0A(%EA%B5%AC%EB%A7%A4%20%EC%9D%B8%EC%A6%9D%EC%83%B7%EC%9D%84%20%EC%B2%A8%EB%B6%80%ED%95%B4%20%EC%A3%BC%EC%84%B8%EC%9A%94)%0A">paul-lab@naver.com</a>
+            <button class="copy-btn" type="button" id="copyBtn" data-mail="paul-lab@naver.com">주소 복사</button>
+          </div>
+        </div>
+      </li>
+
+      <li class="step">
+        <div class="step-no">3</div>
+        <div>
+          <h3>답장으로 쿠폰을 보내드립니다</h3>
+          <p>보내주신 메일을 확인한 뒤, <strong>같은 메일로 답장을 드립니다.</strong> 답장에 위니버시티 VOD 쿠폰 번호와 등록 방법을 함께 담아 보내드립니다.</p>
+        </div>
+      </li>
+    </ol>
+
+    <div class="cta-area">
+      <a class="btn" href="mailto:paul-lab@naver.com?subject=%5B%EB%8F%84%EC%84%9C%20%EA%B5%AC%EB%A7%A4%20%EC%9D%B8%EC%A6%9D%5D%20%EC%9D%B4%EB%9F%B0%20%EA%B1%B0%EC%95%BC!%20Claude%20Desktop&body=%EC%84%B1%ED%95%A8%3A%20%0A%EC%BF%A0%ED%8F%B0%20%EB%B0%9B%EC%9C%BC%EC%8B%A4%20%EB%A9%94%EC%9D%BC%20%EC%A3%BC%EC%86%8C%3A%20%0A%0A(%EA%B5%AC%EB%A7%A4%20%EC%9D%B8%EC%A6%9D%EC%83%B7%EC%9D%84%20%EC%B2%A8%EB%B6%80%ED%95%B4%20%EC%A3%BC%EC%84%B8%EC%9A%94)%0A">
+        인증샷 메일 보내기
+      </a>
+      <p class="btn-note">버튼을 누르면 제목과 양식이 채워진 메일 창이 열립니다.</p>
+    </div>
+  </section>
+
+  <!-- NOTICE -->
+  <section>
+    <div class="notice">
+      <strong>답장은 꼭 드립니다</strong>
+      <p>
+        메일은 담당자가 직접 확인하고 순서대로 답장드리기 때문에, 영업일 기준 며칠 정도 걸릴 수 있습니다.
+        답장이 오지 않는다면 스팸함을 먼저 확인해 주시고, 그래도 없다면 같은 메일로 한 번 더 보내주세요.
+      </p>
+    </div>
+  </section>
+
+  <!-- WHAT YOU GET -->
+  <section>
+    <h2>강의는 이런 내용입니다</h2>
+    <p class="sub">책과 같은 커리큘럼을 총 40강 영상으로 담았습니다.</p>
+    <ol class="steps">
+      <li class="step">
+        <div class="step-no">·</div>
+        <div>
+          <h3>터미널 없이, 채팅창에서 일을 맡깁니다</h3>
+          <p>검은 화면 없이 익숙한 채팅창에서 AI에게 실제 업무를 맡기는 법을 설치부터 첫 성과까지 화면 그대로 따라갑니다.</p>
+        </div>
+      </li>
+      <li class="step">
+        <div class="step-no">·</div>
+        <div>
+          <h3>기능 나열이 아니라 일의 흐름으로</h3>
+          <p>프로젝트, Skills, 커넥터를 하나의 실전 사례를 따라가며 익힙니다. 데이터 분석부터 랜딩 페이지, 브랜드 슬라이드까지 이어집니다.</p>
+        </div>
+      </li>
+      <li class="step">
+        <div class="step-no">·</div>
+        <div>
+          <h3>Claude Code와 Claude Design까지</h3>
+          <p>개발자 얘기로만 여겼던 Claude Code를 Code 탭에서 다루고, Claude Design으로 브랜드를 입힌 자료까지 만들어 봅니다.</p>
+        </div>
+      </li>
+    </ol>
+  </section>
+
+  <!-- FAQ -->
+  <section>
+    <h2>자주 묻는 질문</h2>
+    <div class="faq">
+      <details>
+        <summary>전자책으로 구매해도 되나요?</summary>
+        <p class="answer">네, 종이책과 전자책 모두 가능합니다. 구매 내역이나 서재 화면을 캡처해서 보내주세요.</p>
+      </details>
+      <details>
+        <summary>선물받은 책도 인증이 되나요?</summary>
+        <p class="answer">가능합니다. 이 경우 주문 내역 대신 책과 함께 찍은 사진을 보내주세요.</p>
+      </details>
+      <details>
+        <summary>쿠폰은 어디에서 쓰나요?</summary>
+        <p class="answer">위니브의 VOD 플랫폼 <a href="https://weniversity.co.kr" target="_blank" rel="noopener">위니버시티</a>에서 사용하실 수 있습니다. 등록 방법은 답장 메일에 안내해 드립니다.</p>
+      </details>
+      <details>
+        <summary>한 권으로 여러 개 받을 수 있나요?</summary>
+        <p class="answer">쿠폰은 구매 1건당 1개씩 발급됩니다. 팀이나 기관 단위로 여러 권을 구매하신 경우에는 메일에 그 내용을 적어 문의해 주세요.</p>
+      </details>
+      <details>
+        <summary>보낸 사진은 어떻게 처리되나요?</summary>
+        <p class="answer">보내주신 인증샷과 메일 주소는 쿠폰 발급 확인 목적으로만 사용하며, 발급이 끝나면 파기합니다.</p>
+      </details>
+      <details>
+        <summary>책 내용에 대해 질문하고 싶어요.</summary>
+        <p class="answer">위니빌리지 디스코드의 <strong>질의응답</strong> 채널을 이용해 주세요. 저자와 위니브 강사진, 그리고 같은 책을 보는 분들이 함께 답을 드립니다. 메일보다 훨씬 빠릅니다.</p>
+      </details>
+    </div>
+  </section>
+
+  <!-- MATERIALS -->
+  <section>
+    <h2>실습 자료</h2>
+    <p class="sub">책과 강의에서 사용하는 예제 파일과 자료를 GitHub에 공개해 두었습니다.</p>
+    <div class="notice notice-blue">
+      <strong>github.com/paullabkorea/claudedesktop</strong>
+      <p>별도의 로그인 없이 바로 내려받으실 수 있습니다. 실습을 시작하기 전에 저장소를 먼저 열어두시면 편합니다.</p>
+      <a class="btn btn-line" href="https://github.com/paullabkorea/claudedesktop" target="_blank" rel="noopener">자료 저장소 열기</a>
+    </div>
+  </section>
+
+  <!-- SUPPORT -->
+  <section>
+    <h2>궁금한 점이 있다면</h2>
+    <p class="sub">책과 강의에 대한 문의는 디스코드가 가장 빠릅니다.</p>
+    <div class="notice">
+      <strong>위니빌리지 디스코드 &rsaquo; 질의응답</strong>
+      <p>
+        책을 보다 막히는 부분, 실습이 잘 안 되는 부분은 <strong>위니빌리지 디스코드에 들어오셔서 '질의응답' 채널에 남겨주세요.</strong>
+        메일로도 문의를 받고 있지만, 디스코드에서는 저자와 위니브 강사진은 물론 같은 책을 보는 분들의 답도 함께 받아보실 수 있어 훨씬 빠르게 해결됩니다.
+      </p>
+      <a class="btn btn-line" href="https://discord.gg/MASRTmyu8a" target="_blank" rel="noopener">위니빌리지 디스코드 참여하기</a>
+      <p class="notice-sub">쿠폰 발급용 인증샷만 <a href="mailto:paul-lab@naver.com">paul-lab@naver.com</a>으로 보내주시면 됩니다.</p>
+    </div>
+  </section>
+
+  <!-- LINKS -->
+  <section>
+    <h2>함께 보면 좋습니다</h2>
+    <div class="links">
+      <a class="link-card" href="https://discord.gg/MASRTmyu8a" target="_blank" rel="noopener">
+        <div class="lc-title">위니빌리지 디스코드</div>
+        <div class="lc-desc">질의응답 · 학습 커뮤니티</div>
+      </a>
+      <a class="link-card" href="https://github.com/paullabkorea/claudedesktop" target="_blank" rel="noopener">
+        <div class="lc-title">실습 자료 (GitHub)</div>
+        <div class="lc-desc">예제 파일 내려받기</div>
+      </a>
+      <a class="link-card" href="https://weniversity.co.kr" target="_blank" rel="noopener">
+        <div class="lc-title">위니버시티</div>
+        <div class="lc-desc">위니브 VOD 강의 플랫폼</div>
+      </a>
+      <a class="link-card" href="https://books.weniv.co.kr" target="_blank" rel="noopener">
+        <div class="lc-title">위니북스</div>
+        <div class="lc-desc">강의 교안 무료 열람</div>
+      </a>
+      <a class="link-card" href="https://www.youtube.com/@jejucodingcamp" target="_blank" rel="noopener">
+        <div class="lc-title">유튜브</div>
+        <div class="lc-desc">제주코딩베이스캠프</div>
+      </a>
+      <a class="link-card" href="https://weniv.co.kr" target="_blank" rel="noopener">
+        <div class="lc-title">위니브</div>
+        <div class="lc-desc">회사 및 교육 소개</div>
+      </a>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="fbrand">주식회사 위니브</div>
+    <p>인증샷 접수: <a href="mailto:paul-lab@naver.com">paul-lab@naver.com</a></p>
+    <p>문의: <a href="https://discord.gg/MASRTmyu8a" target="_blank" rel="noopener">위니빌리지 디스코드 &rsaquo; 질의응답</a></p>
+    <p>실습 자료: <a href="https://github.com/paullabkorea/claudedesktop" target="_blank" rel="noopener">github.com/paullabkorea/claudedesktop</a></p>
+    <p><a href="https://weniv.co.kr" target="_blank" rel="noopener">weniv.co.kr</a> · <a href="https://weniversity.co.kr" target="_blank" rel="noopener">weniversity.co.kr</a> · <a href="https://www.youtube.com/@jejucodingcamp" target="_blank" rel="noopener">youtube.com/@jejucodingcamp</a></p>
+    <p>© WENIV Co., Ltd.</p>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('copyBtn').addEventListener('click', function () {
+    var btn = this;
+    var mail = btn.dataset.mail;
+    var done = function () {
+      btn.textContent = '복사됨';
+      btn.classList.add('done');
+      setTimeout(function () {
+        btn.textContent = '주소 복사';
+        btn.classList.remove('done');
+      }, 1600);
+    };
+
+    if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard.writeText(mail).then(done);
+      return;
+    }
+
+    var ta = document.createElement('textarea');
+    ta.value = mail;
+    ta.style.position = 'fixed';
+    ta.style.opacity = '0';
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand('copy'); done(); } catch (e) {}
+    document.body.removeChild(ta);
+  });
+</script>
+
+</body>
+</html>
